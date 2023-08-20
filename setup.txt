@@ -1,0 +1,16 @@
+===============================setup instructions============================
+
+=>to install depedencies, run following command
+npm install
+
+
+================================how to start local server?===================
+
+=>to start local server, run following command
+npm start
+
+=>above command will start the local server at port 3000
+this will open the browser automatically, if doesn't then follow below step
+
+=>Go to desired browser and enter below url:
+http://localhost:3000/
