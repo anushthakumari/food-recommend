@@ -17,6 +17,7 @@ import {
 	FETCH_ALL_UK_FOODS_BEGIN,
 	FETCH_ALL_UK_FOODS_SUCCESS,
 	FETCH_ALL_UK_FOODS_ERROR,
+	UK_FOODS_FULFIL,
 } from "../actions/actions";
 
 export const mealReducer = (state, action) => {
@@ -122,6 +123,11 @@ export const mealReducer = (state, action) => {
 				...state,
 				ukFoodsLoading: false,
 				ukFoodserro: false,
+			};
+		case UK_FOODS_FULFIL:
+			return {
+				...state,
+				proteinSatisfyingFoods: action.payload,
 			};
 		default:
 			return state;

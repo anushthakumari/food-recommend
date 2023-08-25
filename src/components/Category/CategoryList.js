@@ -2,38 +2,35 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Category.scss";
 
-const CategoryList = ({ foods }) => {
+const CategoryList = ({ foods, title = "Popular Meals" }) => {
 	return (
-		<div className="section-wrapper bg-whitesmoke">
+		<div className="section-wrapper">
 			<div className="container">
-				<div className="sc-title">Popular Alternate Dietaries In UK</div>
-				<section className="sc-category grid">
-					{foods.map((f, i) => {
+				<div className="sc-title">{title}</div>
+				<section className="sc-meal">
+					{foods?.map((mealItem) => {
 						return (
 							<Link
-								to={`/meal/category/${f.title}`}
-								className="category-itm flex align-center justify-center"
-								style={{ flexDirection: "column" }}
-								key={i}>
-								<div
-									className="category-itm-img flex align-center justify-center"
-									style={{
-										width: "200px",
-										minHeight: "200px",
-										flexDirection: "column",
-									}}>
-									<img
-										src={f.image_path}
-										alt={f.title}
-										style={{
-											objectFit: "cover",
-											width: "100%",
-											height: "100%",
-										}}
-									/>
+								to={`#`}
+								className="meal-itm align-center justify-center"
+								key={mealItem.doc_id}>
+								<div className="meal-itm-img">
+									<img src={mealItem.image_path} alt={mealItem.title} />
+									<div className="meal-itm-cat bg-orange text-orange fw-6">
+										{mealItem.category}
+									</div>
 								</div>
-								<h4>{f.title}</h4>
-								<p>Protien : {f.protiens}g</p>
+
+								<div className="meal-itm-body">
+									<div className="meal-itm-body-info flex flex-column">
+										<div className="meal fw-15 fw-7 op-09">
+											{mealItem.title}
+										</div>
+										<div className="area fs-14 ls-1 fw-5">
+											Protien :{mealItem.protiens}g
+										</div>
+									</div>
+								</div>
 							</Link>
 						);
 					})}

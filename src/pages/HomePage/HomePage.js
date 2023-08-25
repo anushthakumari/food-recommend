@@ -1,21 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./HomePage.scss";
 import { useMealContext } from "../../context/mealContext";
 import Loader from "../../components/Loader/Loader";
-import CategoryList from "../../components/Category/CategoryList";
+import PopularList from "../../components/Category/CategoryList";
 import NotFound from "../../components/NotFound/NotFound";
 import MealList from "../../components/Meal/MealList";
 
 const HomePage = () => {
 	const {
-		categories,
 		meals,
-		categoryLoading,
-		mealsLoading,
-		indianFoods,
 		allIndianFoodsLoading,
 		ukFoodsLoading,
 		ukfoods,
+		proteinSatisfyingFoods,
 	} = useMealContext();
 
 	return (
@@ -29,10 +26,18 @@ const HomePage = () => {
 			) : (
 				""
 			)}
+
+			{proteinSatisfyingFoods ? (
+				<PopularList
+					title={proteinSatisfyingFoods.title}
+					foods={proteinSatisfyingFoods.meals}
+				/>
+			) : null}
+
 			{ukFoodsLoading || allIndianFoodsLoading ? (
 				<Loader />
 			) : (
-				<CategoryList foods={ukfoods} />
+				<PopularList foods={ukfoods} />
 			)}
 		</main>
 	);

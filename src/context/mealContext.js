@@ -21,6 +21,7 @@ const initialState = {
 	mealError: false,
 	indianFoods: [],
 	ukfoods: [],
+	proteinSatisfyingFoods: null,
 };
 
 const MealContext = createContext({});

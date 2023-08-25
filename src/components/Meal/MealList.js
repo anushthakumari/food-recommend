@@ -3,48 +3,35 @@ import "./Meal.scss";
 import { Link } from "react-router-dom";
 
 const MealList = ({ meals }) => {
-	console.log(meals);
 	return (
 		<div className="section-wrapper">
 			<div className="container">
-				<div className="sc-title">
-					Most Likely Available Equivalent In Britain
-				</div>
-				<section className="sc-meal grid">
-					{meals?.map((mealItem) => {
-						// const {
-						// 	idMeal: id,
-						// 	strArea: area,
-						// 	strCategory: category,
-						// 	strMeal: meal,
-						// 	strMealThumb: thumbnail,
-						// } = mealItem;
-
+				<div className="sc-title">Best Equivalent</div>
+				<section className="sc-meal">
+					{meals?.map((mealItem, i) => {
 						return (
 							<Link
-								to={`/meal/category/${mealItem.title}`}
-								className="category-itm flex align-center justify-center"
-								style={{ flexDirection: "column" }}
+								to={`#`}
+								className="meal-itm align-center justify-center"
 								key={mealItem.doc_id}>
-								<div
-									className="category-itm-img flex align-center justify-center"
-									style={{
-										width: "200px",
-										minHeight: "200px",
-										flexDirection: "column",
-									}}>
-									<img
-										src={mealItem.image_path}
-										alt={mealItem.title}
-										style={{
-											objectFit: "cover",
-											width: "100%",
-											height: "100%",
-										}}
-									/>
+								<h2>{i === 1 ? "Indian" : "UK (Equivalent)"}</h2>
+								<div className="meal-itm-img">
+									<img src={mealItem.image_path} alt={mealItem.title} />
+									<div className="meal-itm-cat bg-orange text-orange fw-6">
+										{mealItem.category}
+									</div>
 								</div>
-								<h4>{mealItem.title}</h4>
-								<p>Protien : {mealItem.protiens}g</p>
+
+								<div className="meal-itm-body">
+									<div className="meal-itm-body-info flex flex-column">
+										<div className="meal fw-15 fw-7 op-09">
+											{mealItem.title} {i === 1 ? "(indian)" : ""}
+										</div>
+										<div className="area fs-14 ls-1 fw-5">
+											Protien :{mealItem.protiens}g
+										</div>
+									</div>
+								</div>
 							</Link>
 						);
 					})}
