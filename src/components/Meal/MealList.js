@@ -11,7 +11,7 @@ const MealList = ({ meals }) => {
 					{meals?.map((mealItem, i) => {
 						return (
 							<Link
-								to={`#`}
+								to={`/meal/${mealItem.doc_id}`}
 								className="meal-itm align-center justify-center"
 								key={mealItem.doc_id}>
 								<h2>{i === 1 ? "Indian" : "UK (Equivalent)"}</h2>
@@ -29,6 +29,9 @@ const MealList = ({ meals }) => {
 										</div>
 										<div className="area fs-14 ls-1 fw-5">
 											Protien :{mealItem.protiens}g
+										</div>
+										<div className="area fs-14 ls-1 fw-5">
+											Total Fats :{mealItem.fat}g
 										</div>
 									</div>
 								</div>

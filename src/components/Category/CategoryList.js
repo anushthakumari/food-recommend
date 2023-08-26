@@ -11,7 +11,7 @@ const CategoryList = ({ foods, title = "Popular Meals" }) => {
 					{foods?.map((mealItem) => {
 						return (
 							<Link
-								to={`#`}
+								to={`/meal/${mealItem.doc_id}`}
 								className="meal-itm align-center justify-center"
 								key={mealItem.doc_id}>
 								<div className="meal-itm-img">
@@ -28,6 +28,10 @@ const CategoryList = ({ foods, title = "Popular Meals" }) => {
 										</div>
 										<div className="area fs-14 ls-1 fw-5">
 											Protien :{mealItem.protiens}g
+										</div>
+
+										<div className="area fs-14 ls-1 fw-5">
+											Total Fats :{mealItem.fat}g
 										</div>
 									</div>
 								</div>

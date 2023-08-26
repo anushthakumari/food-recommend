@@ -3,16 +3,16 @@ import "./App.scss";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 // pages
 import { Home } from "./pages/index";
-// components
-import Header from "./components/Header/Header";
+import Calculator from "./pages/Calculator/index";
+import Details from "./pages/Details/Details";
 
 function App() {
 	return (
 		<BrowserRouter>
-			<Header />
-			{/* <Sidebar /> */}
 			<Routes>
 				<Route path="/" element={<Home />} />
+				<Route path="/meal/:id" element={<Details />} />
+				<Route path="/calculator" element={<Calculator />} />
 			</Routes>
 		</BrowserRouter>
 	);
